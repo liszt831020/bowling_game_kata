@@ -19,8 +19,14 @@ namespace bowling
                 FinalScore_ += p;
                 SpareCheck = false;
             }
-          //  if()
-            if (LastPin == -1) LastPin = p;
+            if (StrikeCheck != -1)
+            {
+                FinalScore_ += p;
+                StrikeCheck++;
+                if (StrikeCheck == 2) StrikeCheck = -1;
+            }
+            if (LastPin==-1 && p == 10) StrikeCheck = 0;
+            if (LastPin == -1 && p!=10) LastPin = p;
             else
             {
                 if (LastPin + p == 10)   SpareCheck = true;

@@ -52,6 +52,68 @@ namespace bowling
             g.SetPins(0);
             Assert.That(g.GetFinalScore(), Is.EqualTo(118));
         }
-        //[Test]
+        [Test]
+        public void StrikeTest()
+        {
+            Game g = new Game();
+            g.SetPins(10);
+            g.SetPins(8);
+            g.SetPins(1);
+            Assert.That(g.GetFinalScore(), Is.EqualTo(28));
+        }
+        [Test]
+        public void MultiStrikeTest()
+        {
+            Game g = new Game();
+            g.SetPins(10);
+            g.SetPins(2);
+            g.SetPins(4);
+            g.SetPins(10);
+            g.SetPins(2);
+            g.SetPins(2);
+            Assert.That(g.GetFinalScore(), Is.EqualTo(40));
+        }
+
+        [Test]
+        public void StikeSpare()
+        {
+            Game g = new Game();
+            g.SetPins(10);
+            g.SetPins(2);
+            g.SetPins(8); 
+            g.SetPins(2);
+            g.SetPins(4);
+            Assert.That(g.GetFinalScore(), Is.EqualTo(38));
+        }
+
+        [Test]
+        public void AllTest()
+        {
+            Game g = new Game();
+            g.SetPins(6);
+            g.SetPins(4);
+            g.SetPins(8);
+            g.SetPins(0);
+            g.SetPins(3); 
+            g.SetPins(7);
+            g.SetPins(3);
+            g.SetPins(4);
+            g.SetPins(8);
+            g.SetPins(2);
+
+            g.SetPins(9);
+            g.SetPins(0);
+            g.SetPins(7);
+            g.SetPins(3);
+            g.SetPins(8);
+            g.SetPins(0);
+            g.SetPins(5);
+            g.SetPins(4);
+            g.SetPins(8);
+            g.SetPins(0);
+
+            Assert.That(g.GetFinalScore(), Is.EqualTo(117));
+        }
+    
     }
 }
