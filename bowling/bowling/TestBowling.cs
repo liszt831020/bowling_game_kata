@@ -114,6 +114,46 @@ namespace bowling
 
             Assert.That(g.GetFinalScore(), Is.EqualTo(117));
         }
+
+        [Test]
+        public void AllTest2()
+        {
+            Game g = new Game();
+            g.SetPins(10);
+            g.SetPins(5);
+            g.SetPins(2);
+            g.SetPins(9);
+            g.SetPins(0);
+            g.SetPins(3);
+            g.SetPins(0);
+            g.SetPins(0);
+            g.SetPins(0);
+
+            g.SetPins(9);
+            g.SetPins(0);
+            g.SetPins(10);
+          
+            g.SetPins(0);
+            g.SetPins(10);
+            g.SetPins(7);
+            g.SetPins(1);
+            g.SetPins(0);
+            g.SetPins(0);
+
+            Assert.That(g.GetFinalScore(), Is.EqualTo(90));
+        }
+
+        [Test]
+        public void StrikeConTest()
+        {
+            Game g = new Game();
+            g.SetPins(10);
+            g.SetPins(10);
+            g.SetPins(3);
+            g.SetPins(2);
+            
+            Assert.That(g.GetFinalScore(), Is.EqualTo(43));
+        }
     
     }
 }
